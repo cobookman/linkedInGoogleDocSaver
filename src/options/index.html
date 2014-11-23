@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+  <style>
+    html, body { font-size: 15px; }
+    </style>
+</head>
+<body>
+  <h2>Zapier WebHook URL</h2>
+  <input type="text" id="webhook" style="font-size:20px;width:500px;">
+  <button id="save" style="font-size:20px;">Save</button>
+
+
+  <h3>Description</h3>
+  <p>
+    This library injects a button into a linkedin profile page.  when the button is pressed, the linkedin page's
+    contents are scraped.  This scrapped data is <code>POST</coded> to a HTTP webhook.
+  </p>
+
+  <h3>Form fields</h3>
+  <ul>
+    <li><b>experience</b></li>
+    <li><b>years_of_experience</b></li>
+    <li><b>summary</b></li>
+    <li><b>name</b></li>
+    <li><b>education_name</b></li>
+    <li><b>education_degree</b></li>
+    <li><b>education_major</b></li>
+    <li><b>education_start</b></li>
+    <li><b>education_end</b></li>
+    <li><b>connections_names</b></li>
+    <li><b>connections_number</b></li>
+  </ul>
+
+  <h3>Zapier Setup</h3>
+  <ol>
+    <li>Go to zapier.com and login with your account</li>
+    <li>Next create a new Zap</li>
+    <li>The zap takes in a webhook (catch hooks) and exports to google docs (create spreadsheet rows)
+      <img src="zapier-config.png">
+    </li>
+    <li>Next select the google spreadsheet/tab you'd like to use. That google spreadsheet should have the first row's columns filled with all the form fields.  And the second row of each column should have '------' filled in.</li>
+    <li>Once zapier successfully reads your spreadsheet, add the webhook url they give you to this form file and hit save.  Then navigate to a random linkedin profile and click 'save to google docs'.  This will pre-populate zapier's auto suggestions</li>
+    <li>Now back in zapier go to step 5, and click on insert fields for each input and select the proper field/data</li>
+    <li>Now click on turn on Zap and enjoy!</li>
+  </ol>
+  </ol>
+
+  
+  <script src="options.js"></script>
+</body>
+</html>
