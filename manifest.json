@@ -1,25 +1,32 @@
 {
-  "name": "LinkedIn to google spreadsheet",
-  "version": "0.0.1",
-  "manifest_version": 2,
-  "description": "Adds a button on linkedIn profiles for exporting the profile data to a google spreadsheet",
-  "homepage_url": "http://example.com",
-  "icons": {
-    "16": "icons/icon16.png",
-    "48": "icons/icon48.png",
-    "128": "icons/icon128.png"
-  },
-  "options_page": "src/options/index.html",
-  "permissions": ["tabs", "storage", "*://*.linkedin.com/*"],
-  "content_scripts": [
-    {
-      "matches": [
-        "*://*.linkedin.com/profile/*"
-      ],
-      "js": [
-        "src/lib/jquery.2.1.1.min.js",
-        "src/inject/inject.js"
-      ]
-    }
-  ]
+    "name": "LinkedIn to google spreadsheet",
+    "version": "0.0.2",
+    "manifest_version": 3,
+    "description": "This extension was created with the awesome extensionizr.com",
+    "homepage_url": "http://github.com/cobookman",
+    "icons": {
+        "16": "icons/icon16.png",
+        "48": "icons/icon48.png",
+        "128": "icons/icon128.png"
+    },
+    "options_page": "src/options/index.html",
+    "permissions": ["tabs", "storage", "unlimitedStorage", "*://*.linkedin.com/*"],
+    "content_scripts": [
+        {
+            "matches": [
+                "*://*.linkedin.com/profile/*",
+                "*://*.linkedin.com/requestList*"
+            ],
+            "js": [
+                "src/lib/jquery.2.1.1.min.js",
+                "src/lib/handlebars-v2.0.0.js",
+                "src/lib/queryString.js",
+
+                "src/inject/messageQuickSend.js",
+                "src/inject/scraper.js",
+                "src/inject/toGoogleDocs.js",
+                "src/inject/app.js"
+            ]
+        }
+    ]
 }
